@@ -2,7 +2,7 @@
     $servername="localhost";
     $username="root";
     $password="";
-    $dbname="libr"; 
+    $dbname="library"; 
     $conn= new mysqli($servername, $username, $password, $dbname);
 
     $imie=$_POST['imie'];
@@ -12,11 +12,8 @@
 
     $sql="INSERT INTO autorzy (imie, nazwisko) VALUES ('$imie', '$nazwisko')";
     $sql2="INSERT INTO tytuly (tytul, ISBN) VALUES ('$tytul', '$ISBN')";
-    //$sql3="INSERT INTO bibl (id_autor, id_tytul) VALUES ()";
-
     mysqli_query($conn, $sql);
     mysqli_query($conn, $sql2);
-    //mysqli_query($conn, $sql3);
 
     $conn->close();
 

@@ -22,9 +22,26 @@
     $servername="localhost";
     $username="root";
     $password="";
-    $dbname="libr";
+    $dbname="library";
     
     $conn= new mysqli($servername, $username, $password, $dbname);
+
+    echo("<form action='insertkrzyz.php' method='POST'>");
+
+        $result1 = $conn -> query("SELECT id_autor FROM autorzy ORDER BY id_autor DESC LIMIT 1");
+
+        while($row = $result1 -> fetch_assoc() ){
+            echo("<input type='hidden' value='".$row['id_autor']."' name='id_autor'/>");
+        }
+ 
+        $result2 = $conn -> query("SELECT id_tytul FROM tytuly ORDER BY id_tytul DESC LIMIT 1");
+
+         while($row = $result2 -> fetch_assoc()){
+            echo("<input input type='hidden' value='".$row['id_tytul']."' name='id_tytul'/>");
+        }
+
+        echo("<input type='submit' name='POST' value='Odśwież'>");
+    echo("</form>");
     
     $result= $conn->query("SELECT * FROM krzyz, autorzy, tytuly WHERE krzyz.id_tytul = tytuly.id_tytul AND krzyz.id_autor = autorzy.id_autor;");
     echo("<table class='tabelka'>");

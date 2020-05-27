@@ -2,19 +2,18 @@
     $servername="localhost";
     $username="root";
     $password="";
-    $dbname="library"; 
+    $dbname="library";
+    
     $conn= new mysqli($servername, $username, $password, $dbname);
 
-    $autor=$_POST['autor'];
+    $autor=$_POST['id_autor'];
+    $tytul=$_POST['id_tytul'];
 
-    $sql ="DELETE FROM krzyz WHERE id_autor='$autor'";
-    $sql2="DELETE FROM autorzy WHERE id_autor='$autor'";
+    $sql="INSERT INTO krzyz (id_autor, id_tytul) VALUES ('$autor', '$tytul')";
 
     mysqli_query($conn, $sql);
-    mysqli_query($conn, $sql2);
 
     $conn->close();
 
     header('Location: http://localhost/library/index.php');
-
 ?>
