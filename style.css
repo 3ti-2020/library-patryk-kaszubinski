@@ -13,6 +13,9 @@
 .left{
     background: tomato;
     grid-area: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .mid{
     background: crimson;
@@ -25,4 +28,10 @@
     border: black 2px solid;
     background: orangered;
     border-collapse: collapse;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -8,7 +8,15 @@
 </head>
 <body>
     <div class="container">
-    <div class="left"></div>
+    <div class="left">
+    <form action="insert.php" method="POST">
+    <input type="text" name="imie">Imie<br>
+    <input type="text" name="nazwisko">Nazwisko<br>
+    <input type="text" name="tytul">Tytuł<br>
+    <input type="text" name="ISBN">ISBN<br>
+    <input type="submit" name="POST" value="INSERT">
+    </form>
+    </div>
     <div class="mid">
     <?php
     $servername="localhost";
@@ -33,7 +41,7 @@
 
         echo("<tr>");
         echo("<td>" .$wiersz['imie']. "</td><td>" .$wiersz['nazwisko']. "</td><td>" .$wiersz['tytul']. "</td><td>" .$wiersz['ISBN']. "</td><td>
-        <form action='delete.php' method='POST'>
+        <form action='deleteaut.php' method='POST'>
         <input type='hidden' name='autor' value='".$wiersz['id_autor']."'>
         <input type='submit' name='POST' value='DELETE'>
         </form>

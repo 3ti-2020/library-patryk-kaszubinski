@@ -5,15 +5,20 @@
     $dbname="libr"; 
     $conn= new mysqli($servername, $username, $password, $dbname);
 
+    $imie=$_POST['imie'];
+    $nazwisko=$_POST['nazwisko'];
     $tytul=$_POST['tytul'];
+    $ISBN=$_POST['ISBN'];
 
-    $sql="DELETE FROM krzyz WHERE id_tytul='$tytul'";
-    $sql2="DELETE FROM tytuly WHERE id_tytul='$tytul'";
+    $sql="INSERT INTO autorzy (imie, nazwisko) VALUES ('$imie', '$nazwisko')";
+    $sql2="INSERT INTO tytuly (tytul, ISBN) VALUES ('$tytul', '$ISBN')";
+    //$sql3="INSERT INTO bibl (id_autor, id_tytul) VALUES ()";
+
     mysqli_query($conn, $sql);
     mysqli_query($conn, $sql2);
+    //mysqli_query($conn, $sql3);
 
     $conn->close();
 
     header('Location: http://localhost/library/index.php');
-
 ?>
