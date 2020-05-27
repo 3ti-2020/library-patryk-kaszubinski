@@ -1,3 +1,28 @@
-body {
-color: black;
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "left mid";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr;
+}
+.left{
+    background: tomato;
+    grid-area: left;
+}
+.mid{
+    background: crimson;
+    grid-area: mid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tabelka, td, tr{
+    border: black 2px solid;
+    background: orangered;
+    border-collapse: collapse;
 }
